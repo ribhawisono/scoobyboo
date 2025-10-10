@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery - Salma Cake Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+
+    <header>
+        <div class="logo">🎂 Salma Cake Bakery</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="form-order.html">Shop</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html" class="cta-button">Contact</a>
+        </nav>
+    </header>
+
+    <main class="gallery-content">
+        <h1>Gallery Inspirasi Kue Custom</h1>
+        <p style="text-align: center; margin-bottom: 30px;">Jelajahi berbagai model kue yang pernah kami buat. Jadikan ini inspirasi untuk pesanan Anda!</p>
+
+        <div class="katalog-filter">
+            <button class="active" data-filter="semua">Semua</button>
+            <button data-filter="sulit">Level Sulit</button>
+            <button data-filter="karakter">Character (3D)</button>
+            <button data-filter="minimalis">Minimalis (Fondan)</button>
+            <button data-filter="drip">Drip Cake</button>
+        </div>
+
+        <div class="katalog-grid">
+            
+            <script>
+                // Fungsi untuk membuat item galeri (data item tetap di sini)
+                function createGalleryItem(idPrefix, category, title, extension) {
+                    const html = `
+                        <div class="gallery-item" data-category="${category}">
+                            <div class="image-carousel-mini">
+                                <div class="image-stack" id="${idPrefix}-carousel-stack">
+                                    <img src="img/${category}/${idPrefix}1.${extension}" alt="${title} - Slide 1">
+                                    <img src="img/${category}/${idPrefix}2.${extension}" alt="${title} - Slide 2">
+                                    <img src="img/${category}/${idPrefix}3.${extension}" alt="${title} - Slide 3">
+                                </div>
+                                <div class="carousel-controls">
+                                    <button onclick="changeSlide('${idPrefix}-carousel-stack', -1)">&#10094;</button>
+                                    <button onclick="changeSlide('${idPrefix}-carousel-stack', 1)">&#10095;</button>
+                                </div>
+                            </div>
+                            <p>${title}</p>
+                        </div>
+                    `;
+                    document.write(html);
+                }
+
+                // format: createGalleryItem(nama_file, kategori, judul, format_gambar)
+                createGalleryItem('gabby', 'sulit', "Gabby's Dollhouse Cake", 'jpg');
+                createGalleryItem('customchar', 'sulit', "Karakter Custom Khusus", 'webp');
+                createGalleryItem('customlampu', 'sulit', "Kue Lampu LED Custom", 'webp');
+                createGalleryItem('bebek', 'karakter', "Bebek Kuning Lucu", 'webp');
+                createGalleryItem('bola', 'karakter', "Tema Bola 3D", 'webp');
+                createGalleryItem('human', 'karakter', "Potrait Wajah Manusia", 'webp');
+                createGalleryItem('buah', 'minimalis', "Naked Cake Buah Mix", 'webp');
+                createGalleryItem('minnie', 'minimalis', "Minnie Mouse Simple", 'webp');
+                createGalleryItem('triwarna', 'minimalis', "Kue Minimalis Triwarna", 'webp');
+                createGalleryItem('candy', 'drip', "Candy Land Drip Cake", 'webp');
+                createGalleryItem('cokelatcherry', 'drip', "Cokelat Cherry Mewah Drip", 'webp');
+                createGalleryItem('cokelatstoberi', 'drip', "Cokelat Stroberi Drip Klasik", 'webp');
+            </script>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Salma Cake Bakery. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/javascript.js"></script>
+    <script src="js/script-slider.js"></script>
+</body>
+</html>

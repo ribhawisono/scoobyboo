@@ -1,0 +1,93 @@
+#testimonials {
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Penting untuk posisi tombol */
+    padding: 0 40px; /* Memberi ruang untuk tombol di samping */
+}
+
+.card-slider {
+    display: flex; /* Menampilkan kartu secara horizontal */
+    overflow-x: scroll; /* Mengizinkan scroll horizontal */
+    scroll-behavior: smooth; /* Membuat transisi scroll halus */
+        padding: 20px 0;
+    gap: 25px; /* Jarak antar kartu */
+    /* Menyembunyikan scrollbar bawaan browser */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.card-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.card.testimonial-card {
+    min-width: 350px; /* Ukuran kartu testimoni */
+    flex-shrink: 0; 
+    background-color: var(--bg-card); /* Menggunakan warna dari root */
+    padding: 30px;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--secondary-color); /* Garis pemisah */
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+.testimonial-card .author {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Tombol Navigasi */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider-button:hover {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    transform: translateY(-50%) scale(1.05);
+}
+
+#slideLeft {
+    left: 0;
+}
+
+#slideRight {
+    right: 0;
+}
+
+/* Responsive: Sembunyikan tombol di layar kecil agar user scroll manual */
+@media (max-width: 768px) {
+    .slider-button {
+        display: none;
+    }
+    .slider-container {
+        padding: 0 20px;
+    }
+    .card.testimonial-card {
+        min-width: 90%; /* Buat kartu lebih lebar di mobile */
+    }
+}

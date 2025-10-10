@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout - Salma Cake Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🎂 Salma Cake Bakery</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="form-order.html">Shop</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="cta-button">Contact</a>
+        </nav>
+    </header>
+
+    <main class="checkout-content">
+        <h1>Silakan Konfirmasi & Melakukan Pembayaran</h1>
+        
+        <div id="checkoutSummary">
+            <h2>Ringkasan Pesanan Anda</h2>
+            <table>
+                <tr><th>Ukuran:</th><td id="checkout_ukuran"></td></tr>
+                <tr><th>Base Cake:</th><td id="checkout_base_cake"></td></tr>
+                <tr><th>Tanggal Ambil/Kirim:</th><td id="checkout_tanggal"></td></tr>
+            </table>
+            
+            <h3 class="total-harga">Total Estimasi Harga: <span id="checkout_total">Rp 0</span></h3>
+            <p class="warning-note">
+                <b>PERHATIAN:</b> Ini adalah harga estimasi. Harga final dikonfirmasi Admin jika ada Request Khusus/Custom sulit.
+            </p>
+        </div>
+
+        <form id="checkoutForm">
+            <fieldset>
+                <legend>Data Pelanggan</legend>
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required>
+                
+                <label for="nohp">Nomor HP/WA:</label>
+                <input type="tel" id="nohp" name="nohp" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Metode Pengiriman</legend>
+                <input type="radio" id="ambil" name="metode_kirim" value="ambil" checked for="ambil"> Ambil Sendiri (Pick-up)<br>
+                
+                <input type="radio" id="kirim" name="metode_kirim" value="kirim" for="kirim"> Dikirim (Biaya kirim dihitung terpisah)
+                
+                <div id="alamat_kirim" style="display:none;">
+                    <label for="alamat">Alamat Lengkap:</label>
+                    <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap Anda..."></textarea>
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Metode Pembayaran</legend>
+                <select id="payment_method" name="payment_method" required>
+                    <option value="">Pilih Metode Pembayaran</option>
+                    <option value="transfer_bca">Transfer Bank BCA</option>
+                    <option value="transfer_mandiri">Transfer Bank Mandiri</option>
+                    <option value="ewallet">E-Wallet (Dana/OVO)</option>
+                </select>
+                <button type="submit" class="cta-large">KONFIRMASI PESANAN & LANJUT KE PEMBAYARAN</button>
+            </fieldset>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Salma Cake Bakery. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/javascript.js"></script>
+</body>
+</html>

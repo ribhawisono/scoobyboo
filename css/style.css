@@ -1,0 +1,701 @@
+/* 1. DEFINISI VARIABEL CSS GLOBAL (Custom Properties) */
+:root {
+    --primary-color: #8B4513; /* Cokelat Tua */
+    --secondary-color: #EAC964; /* Emas/Kuning Kecoklatan (Aksen) */
+    --accent-color: #A9A9A9; /* Abu-abu (Garis/Batas) */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --bg-light: #FBF8F5; /* Background sangat terang */
+    --bg-card: #ffffff;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Roboto', sans-serif;
+    --border-radius-main: 12px;
+    --transition-speed: 0.3s;
+}
+
+/* 2. STYLING DASAR (RESET) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    margin-bottom: 0.5em;
+    color: var(--primary-color);
+}
+
+main {
+    padding: 30px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    flex-grow: 1; /* Memastikan main mengisi ruang yang tersedia */
+}
+
+/* 3. HEADER & NAVIGASI */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 18px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    margin-left: 25px;
+    padding: 10px 18px;
+    font-weight: 500;
+    border-radius: var(--border-radius-main);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+nav a:not(.cta-button):hover,
+nav a.active:not(.cta-button) {
+    color: var(--text-light);
+    background-color: var(--primary-color);
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    padding: 10px 20px;
+    font-weight: 700;
+    border: 2px solid var(--secondary-color);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+/* 4. FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+/* 5. HOMEPAGE (index.html) */
+#hero {
+    background: linear-gradient(rgba(251, 248, 245, 0.6), rgba(251, 248, 245, 0.8)), url('img/bg.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 100px 50px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: var(--border-radius-main);
+}
+
+#hero h1 {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+.cta-large {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 18px 40px;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed);
+}
+
+.cta-large:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#about {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.info-card {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--border-radius-main);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#gallery-preview {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.katalog-grid-preview {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.preview-item {
+    display: block;
+    width: 30%;
+    max-width: 300px;
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.preview-item:hover {
+    transform: scale(1.05);
+}
+
+.preview-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.preview-item span {
+    display: block;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* 6. TESTIMONIAL SLIDER (DIGABUNGKAN) */
+#testimonials {
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 40px;
+}
+
+.card-slider {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    gap: 25px;
+    /* Menyembunyikan scrollbar bawaan browser */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.card-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.card.testimonial-card {
+    min-width: 350px;
+    flex-shrink: 0; 
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--secondary-color);
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+.testimonial-card .author {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Tombol Navigasi Slider Testimonial */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider-button:hover {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    transform: translateY(-50%) scale(1.05);
+}
+
+#slideLeft {
+    left: 0;
+}
+
+#slideRight {
+    right: 0;
+}
+
+
+/* 7. GALLERY PAGE (gallery.html) */
+.katalog-filter {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.katalog-filter button {
+    background-color: var(--bg-card);
+    color: var(--primary-color);
+    border: 1px solid var(--accent-color);
+    padding: 10px 25px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+}
+
+.katalog-filter button:hover,
+.katalog-filter button.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.katalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item p {
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 500;
+    background-color: var(--bg-light);
+}
+
+/* --- STYLING CAROUSEL MINI --- */
+
+.image-carousel-mini {
+    position: relative; 
+    width: 100%;
+    height: 320px; 
+    overflow: hidden; 
+    border-top-left-radius: var(--border-radius-main);
+    border-top-right-radius: var(--border-radius-main);
+}
+
+.image-stack {
+    /* *** PERBAIKAN KRITIS UNTUK CAROUSEL BERFUNGSI *** */
+    display: flex; /* Memposisikan gambar secara horizontal */
+    overflow-x: hidden; /* JavaScript akan mengontrol scroll ini */
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+.image-stack img {
+    min-width: 100%; /* Setiap gambar mengambil seluruh lebar view */
+    flex-shrink: 0; /* Penting! Mencegah gambar menyusut */
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+}
+
+.carousel-controls button {
+    background: rgba(139, 69, 19, 0.7);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background 0.3s;
+    z-index: 5; 
+}
+
+.carousel-controls button:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
+/* 8. FORM, CHECKOUT, & ABOUT PAGES */
+
+/* About Page (about.html) */
+.about-content {
+    background-color: var(--bg-card);
+    padding: 50px 70px;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-content h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.story-section {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-bottom: 1px dashed var(--accent-color);
+}
+
+.story-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 40px;
+}
+
+.story-section h2 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.story-section p {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
+.cta-about {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.cta-about p {
+    font-size: 1.2em;
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+}
+
+/* Contact Page (contact.html) */
+.contact-content {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+}
+
+.form-container, .info-map-container {
+    padding: 20px;
+    border-radius: var(--border-radius-main);
+}
+
+.info-card-contact h3 {
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.info-card-contact p {
+    margin-bottom: 15px;
+}
+
+.map-placeholder {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.map-placeholder iframe {
+    width: 100%; 
+    height: 250px;
+    border: 0;
+    display: block;
+    border-radius: var(--border-radius-main);
+}
+
+.map-caption {
+    font-size: 0.85em;
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Form & Checkout Styling (form-order.html & checkout.html) */
+.form-content, .checkout-content {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-content h1, .checkout-content h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    color: var(--secondary-color);
+    text-shadow: 0 0 1px var(--primary-color);
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius-main);
+}
+
+legend {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 0 15px;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 1em;
+    transition: border-color var(--transition-speed);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(139, 69, 19, 0.2);
+}
+
+fieldset input[type="checkbox"],
+fieldset input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+/* Ringkasan Harga */
+#ringkasan_harga, #checkoutSummary {
+    border: 3px dashed var(--primary-color);
+    padding: 25px;
+    border-radius: var(--border-radius-main);
+    background-color: #F8EFE4;
+    margin-top: 30px;
+}
+
+#ringkasan_harga p, #checkoutSummary p {
+    margin: 5px 0;
+}
+
+#ringkasan_harga h3, #checkoutSummary h2 {
+    color: var(--primary-color);
+    font-family: var(--font-sans);
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+#total_estimasi, #checkout_total {
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.notif-custom {
+    color: #b30000;
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 0.9em;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+}
+
+/* Checkout Page Specific */
+#checkoutSummary table {
+    margin-top: 15px;
+    width: 100%;
+    text-align: left;
+}
+
+#checkoutSummary th, #checkoutSummary td {
+    padding: 5px 0;
+}
+
+#checkoutSummary th {
+    width: 40%;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.total-harga {
+    text-align: right;
+    font-size: 1.3em;
+    margin-top: 25px;
+    font-weight: 700;
+}
+
+.warning-note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+
+/* 9. RESPONSIVE DESIGN (Media Queries) */
+@media (max-width: 992px) {
+    #about, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .katalog-grid-preview {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .preview-item {
+        width: 80%;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px;
+    }
+
+    #hero {
+        padding: 60px 20px;
+    }
+
+    #hero h1 {
+        font-size: 2.5em;
+    }
+
+    .form-content, .checkout-content, .about-content, .contact-content {
+        padding: 20px;
+    }
+    
+    /* Testimonial Slider: Sembunyikan tombol di layar kecil agar user scroll manual */
+    .slider-button {
+        display: none;
+    }
+    .slider-container {
+        padding: 0 20px;
+    }
+    .card.testimonial-card {
+        min-width: 90%;
+    }
+}

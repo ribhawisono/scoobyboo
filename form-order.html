@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Custom Order - Salma Cake Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🎂 Salma Cake Bakery</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="form-order.html" class="active">Shop</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="cta-button">Contact</a>
+        </nav>
+    </header>
+    
+    <main class="form-content">
+        <h1>Pilih Detail Kue Ulang Tahun Custom</h1>
+        <form id="customOrderForm">
+
+            <fieldset>
+                <legend>Detail Dasar Kue</legend>
+                <label for="ukuran">Ukuran (Diameter/Dimensi):</label>
+                <select id="ukuran" name="ukuran" required>
+                    <option value="15_cm">15 cm (Kecil) - Rp 150.000</option>
+                    <option value="20_cm" selected>20 cm (Sedang) - Rp 250.000</option>
+                    <option value="20x20_cm">20x20 cm (Persegi Besar) - Rp 300.000</option>
+                </select>
+
+                <label for="bentuk">Bentuk Dasar:</label>
+                <select id="bentuk" name="bentuk" required>
+                    <option value="bulat">Bulat</option>
+                    <option value="persegi">Persegi</option>
+                    <option value="hati">Hati</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Bahan Baku & Add-ons</legend>
+
+                <label for="base_cake">Rasa Dasar (Base Cake):</label>
+                <select id="base_cake" name="base_cake" required>
+                    <option value="cokelat">Cokelat Premium</option>
+                    <option value="vanilla">Vanilla Butter</option>
+                    <option value="red_velvet">Red Velvet (+Rp 25.000)</option>
+                </select>
+                
+                <fieldset><legend>Pilih Add-ons (Harga ditambahkan otomatis):</legend>
+
+                <input type="checkbox" id="addons1" name="addons" value="fondan_minimalis" data-price="50000" for="addons1"> Dekorasi Fondan Minimalis (+Rp 50.000)<br>
+
+                <input type="checkbox" id="addons2" name="addons" value="buah_segar" data-price="35000" for="addons2"> Topping Buah Segar (+Rp 35.000)<br>
+                
+                <input type="checkbox" id="addons3" name="addons" value="filling_premium" data-price="20000" for="addons3"> Filling Premium Ganache (+Rp 20.000)</fieldset>
+            </fieldset>
+
+            <fieldset>
+                <legend>Request Custom & Pengiriman</legend>
+                <label for="request_khusus">Request Khusus (misal: bentuk/ukuran custom, figur 3D - <b>Persetujuan Admin</b>):</label>
+                <textarea id="request_khusus" name="request_khusus" rows="4"></textarea>
+
+                <label for="tanggal_ambil">Tanggal Ambil/Kirim:</label>
+                <input type="date" id="tanggal_ambil" name="tanggal_ambil" required>
+            </fieldset>
+
+            <div id="ringkasan_harga">
+                <h3>Ringkasan Harga Awal:</h3>
+                <p>Harga Dasar: <span id="harga_dasar">Rp 0</span></p>
+                <p>Total Add-ons: <span id="total_addons">Rp 0</span></p>
+                <p>Total Estimasi: <strong id="total_estimasi">Rp 0</strong></p>
+                <p class="notif-custom">
+                    * Harga final akan dikonfirmasi Admin jika ada Request Khusus/Custom sulit.
+                </p>
+            </div>
+
+            <button type="submit" class="cta-large">Lanjut ke Checkout</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Salma Cake Bakery. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/javascript.js"></script>
+</body>
+</html>

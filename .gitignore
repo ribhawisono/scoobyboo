@@ -1,0 +1,15 @@
+# 1. File Sistem Operasi yang Tidak Perlu
+# Abaikan file cache dari macOS dan Windows
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 2. File dan Folder Konfigurasi Lokal
+# Abaikan folder konfigurasi VS Code (jika ada)
+.vscode/
+
+# 3. File Log dan Temporary
+# Abaikan file log, temporary, dan backup
+*.log
+*.tmp
+*.bak
