@@ -31,7 +31,6 @@ function changeSlide(stackId, direction) {
     if (!stack) return;
 
     // Lebar slide tunggal (diasumsikan 100% dari container)
-    // Perlu diukur saat fungsi dipanggil, karena document.write berjalan lebih dulu.
     const slideWidth = stack.children[0].clientWidth; 
     
     let currentScroll = stack.scrollLeft;
