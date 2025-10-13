@@ -6,7 +6,7 @@ const HARGA_DASAR_UKURAN = {
     '20x20_cm': 300000
 };
 
-// Fungsi utilitas untuk memformat angka menjadi Rupiah
+// format angka menjadi Rupiah
 function formatRupiah(angka) {
     if (isNaN(angka)) return 'Rp 0';
     return new Intl.NumberFormat('id-ID', {
@@ -16,7 +16,7 @@ function formatRupiah(angka) {
     }).format(angka);
 }
 
-// Fungsi utama untuk menghitung dan menampilkan total harga
+// hitung dan menampilkan total harga
 function hitungHarga() {
     let hargaDasar = 0;
     let totalAddons = 0;
@@ -31,7 +31,7 @@ function hitungHarga() {
     // 2. Tambahan untuk Base Cake premium (Red Velvet)
     const baseCakeElement = document.getElementById('base_cake');
     if (baseCakeElement && baseCakeElement.value === 'red_velvet') {
-        hargaDasar += 50000;
+        hargaDasar += 25000;
     }
 
     // 3. Hitung Total Add-ons
