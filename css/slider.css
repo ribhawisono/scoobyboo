@@ -1,0 +1,90 @@
+/* 1. styling khusus untuk bagian testimonial */
+#testimonials {
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* penting untuk posisi tombol */
+    padding: 0 40px; /* memberi ruang untuk tombol di samping */
+}
+
+/* 2. card slider utama (scroll horizontal) */
+.card-slider {
+    display: flex; /* menampilkan kartu secara horizontal */
+    overflow-x: scroll; /* diubah menjadi 'scroll' agar mouse wheel berfungsi konsisten */
+    scroll-behavior: smooth; /* membuat transisi scroll halus */
+    padding: 20px 0;
+    gap: 25px; /* jarak antar kartu */
+    
+    /* perbaikan 4: mouse scroll/smooth scroll */
+    -webkit-overflow-scrolling: touch; /* untuk ios/mobile smoothness */
+    scroll-snap-type: x mandatory; /* memastikan scroll berhenti tepat di kartu */
+    cursor: grab; /* memberi indikasi bahwa elemen bisa di drag/scroll */
+}
+
+/* menyembunyikan scrollbar bawaan browser */
+.card-slider::-webkit-scrollbar {
+    display: none;
+}
+.card-slider {
+    -ms-overflow-style: none; /* ie and edge */
+    scrollbar-width: none; /* firefox */
+}
+
+/* 3. styling kartu testimonial */
+.card.testimonial-card {
+    min-width: 350px; /* ukuran kartu testimoni */
+    flex-shrink: 0; 
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--secondary-color);
+    scroll-snap-align: start; /* titik snap scroll */
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+.testimonial-card .author {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* 4. tombol navigasi slider */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider-button:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.05);
+}
+
+#slideLeft {
+    left: 0;
+}
+
+#slideRight {
+    right: 0;
+}
