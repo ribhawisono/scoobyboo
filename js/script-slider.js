@@ -25,13 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // FUNGSI CAROUSEL MINI GALERI (Dipanggil oleh tombol di gallery.html)
-
+/**
+ * Mengubah slide pada carousel mini galeri dengan efek looping.
+ * @param {string} stackId - ID dari container stack (misalnya 'mini-galeri-1').
+ * @param {number} direction - Arah pergerakan: -1 untuk kiri, 1 untuk kanan.
+ */
 function changeSlide(stackId, direction) {
     const stack = document.getElementById(stackId);
     if (!stack) return;
 
     // Lebar slide tunggal (diasumsikan 100% dari container)
-    const slideWidth = stack.children[0].clientWidth; 
+    // Menggunakan offsetWidth/scrollWidth untuk mendapatkan ukuran yang lebih akurat
+    const slideWidth = stack.offsetWidth; 
     
     let currentScroll = stack.scrollLeft;
     let targetScroll = currentScroll + (direction * slideWidth);
