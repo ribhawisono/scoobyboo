@@ -22,6 +22,10 @@
     <main class="checkout-content">
         <h1>Silakan Konfirmasi & Melakukan Pembayaran</h1>
         
+        <div class="checkout-intro-box">
+            <p>Anda melakukan <b>Guest Checkout</b>. Semua data di bawah ini akan digunakan untuk konfirmasi pesanan via WhatsApp/Email. Pastikan data sudah benar.</p>
+        </div>
+
         <div id="checkoutSummary">
             <h2>Ringkasan Pesanan Anda</h2>
             <table>
@@ -32,41 +36,46 @@
             
             <h3 class="total-harga">Total Estimasi Harga: <span id="checkout_total">Rp 0</span></h3>
             <p class="warning-note">
-                <b>PERHATIAN:</b> Ini adalah harga estimasi. Harga final dikonfirmasi Admin jika ada Request Khusus/Custom sulit.
+                <b>PERHATIAN:</b> Ini adalah harga estimasi. Harga final dikonfirmasi Admin jika ada Request Khusus/Custom sulit. Pembayaran wajib dilakukan <b>Cashless/Transfer</b>.
             </p>
         </div>
 
         <form id="checkoutForm">
+            <!-- FIELDSET BARU UNTUK DATA PRIBADI (GUEST CHECKOUT) -->
             <fieldset>
-                <legend>Data Pelanggan</legend>
+                <legend>Informasi Kontak & Pengiriman</legend>
                 <label for="nama">Nama Lengkap:</label>
-                <input type="text" id="nama" name="nama" required>
+                <input type="text" id="nama" name="nama" required placeholder="Nama Anda untuk konfirmasi pesanan">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Alamat email untuk notifikasi">
                 
                 <label for="nohp">Nomor HP/WA:</label>
-                <input type="tel" id="nohp" name="nohp" required>
+                <input type="tel" id="nohp" name="nohp" required placeholder="Contoh: 08123456789">
             </fieldset>
 
             <fieldset>
-                <legend>Metode Pengiriman</legend>
-                <input type="radio" id="ambil" name="metode_kirim" value="ambil" checked for="ambil"> Ambil Sendiri (Pick-up)<br>
+                <legend>Metode Ambil / Kirim</legend>
+                <input type="radio" id="ambil" name="metode_kirim" value="ambil" checked> Ambil Sendiri (Pick-up)
                 
-                <input type="radio" id="kirim" name="metode_kirim" value="kirim" for="kirim"> Dikirim (Biaya kirim dihitung terpisah)
+                <input type="radio" id="kirim" name="metode_kirim" value="kirim"> Dikirim (Biaya kirim dihitung terpisah)
                 
-                <div id="alamat_kirim" style="display:none;">
+                <div id="alamat_kirim" style="display:none; margin-top: 15px;">
                     <label for="alamat">Alamat Lengkap:</label>
-                    <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap Anda..."></textarea>
+                    <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap Anda (Jalan, Nomor Rumah, RT/RW, Kecamatan, Kota)..."></textarea>
                 </div>
             </fieldset>
             
             <fieldset>
-                <legend>Metode Pembayaran</legend>
+                <legend>Metode Pembayaran (Wajib Cashless)</legend>
                 <select id="payment_method" name="payment_method" required>
                     <option value="">Pilih Metode Pembayaran</option>
                     <option value="transfer_bca">Transfer Bank BCA</option>
                     <option value="transfer_mandiri">Transfer Bank Mandiri</option>
-                    <option value="ewallet">E-Wallet (Dana/OVO)</option>
+                    <option value="ewallet">E-Wallet (Dana/OVO/GoPay)</option>
                 </select>
                 <button type="submit" class="cta-large">KONFIRMASI PESANAN & LANJUT KE PEMBAYARAN</button>
+                <p class="warning-note">Anda akan diarahkan ke halaman instruksi pembayaran setelah konfirmasi ini.</p>
             </fieldset>
         </form>
     </main>
@@ -75,6 +84,7 @@
         <p>&copy; 2025 Salma Cake Bakery. All Rights Reserved.</p>
     </footer>
 
+    <!-- Catatan: Anda mungkin perlu menambahkan gaya CSS untuk '.checkout-intro-box' di style.css agar lebih menonjol -->
     <script src="js/javascript.js"></script>
 </body>
 </html>

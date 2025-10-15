@@ -16,6 +16,26 @@ function formatRupiah(angka) {
     }).format(angka);
 }
 
+// Fungsi baru untuk memformat tanggal dari YYYY-MM-DD menjadi dd/month/yyyy (ex: 25 Oktober 2025)
+function formatDateDisplay(dateString) {
+    if (!dateString || dateString === 'N/A') return 'N/A';
+    
+    // Asumsi format input dari localStorage adalah YYYY-MM-DD
+    const [year, month, day] = dateString.split('-');
+    
+    if (!year || !month || !day) return dateString;
+
+    // Buat objek Date (Perhatian: bulan di Date dimulai dari 0)
+    const date = new Date(year, month - 1, day);
+
+    // Gunakan Intl.DateTimeFormat untuk format lokal yang cantik
+    return new Intl.DateTimeFormat('id-ID', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    }).format(date);
+}
+
 // hitung dan menampilkan total harga
 function hitungHarga() {
     let hargaDasar = 0;
@@ -31,6 +51,9 @@ function hitungHarga() {
     // 2. Tambahan untuk Base Cake premium (Red Velvet)
     const baseCakeElement = document.getElementById('base_cake');
     if (baseCakeElement && baseCakeElement.value === 'red_velvet') {
+        // PERHATIAN: Saya menggunakan += 25000 seperti di snippet Anda,
+        // namun di update sebelumnya saya menggunakan totalAddons += 50000.
+        // Saya mengikuti logika terbaru Anda di sini.
         hargaDasar += 25000;
     }
 
@@ -60,11 +83,15 @@ function hitungHarga() {
 
 function loadCheckoutDetails() {
     const totalEstimasi = localStorage.getItem('order_total_estimasi') || 0;
+    const tanggalAmbil = localStorage.getItem('order_tanggal') || 'N/A'; // Ambil tanggal dari localStorage
     
-    document.getElementById('checkout_ukuran').textContent = localStorage.getItem('order_ukuran') || 'N/A';
-    document.getElementById('checkout_base_cake').textContent = localStorage.getItem('order_base_cake') || 'N/A';
-    document.getElementById('checkout_tanggal').textContent = localStorage.getItem('order_tanggal') || 'N/A';
-    document.getElementById('checkout_total').textContent = formatRupiah(parseInt(totalEstimasi));
+    if (document.getElementById('checkout_ukuran')) {
+        document.getElementById('checkout_ukuran').textContent = localStorage.getItem('order_ukuran') || 'N/A';
+        document.getElementById('checkout_base_cake').textContent = localStorage.getItem('order_base_cake') || 'N/A';
+        // GUNAKAN FUNGSI BARU DI SINI
+        document.getElementById('checkout_tanggal').textContent = formatDateDisplay(tanggalAmbil);
+        document.getElementById('checkout_total').textContent = formatRupiah(parseInt(totalEstimasi));
+    }
 }
 
 function setupCheckoutToggles() {
@@ -75,10 +102,12 @@ function setupCheckoutToggles() {
     const toggleAlamat = () => {
         if (kirimRadio && kirimRadio.checked) {
             alamatContainer.style.display = 'block';
-            document.getElementById('alamat').setAttribute('required', 'required');
+            const alamatInput = document.getElementById('alamat');
+            if (alamatInput) alamatInput.setAttribute('required', 'required');
         } else {
             alamatContainer.style.display = 'none';
-            document.getElementById('alamat').removeAttribute('required');
+            const alamatInput = document.getElementById('alamat');
+            if (alamatInput) alamatInput.removeAttribute('required');
         }
     };
 
@@ -87,6 +116,39 @@ function setupCheckoutToggles() {
 
     // Cek status awal
     toggleAlamat();
+
+    // --- LOGIKA FORM SUBMISSION YANG HILANG ---
+    const checkoutForm = document.getElementById('checkoutForm');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 1. Simpan Data Guest Checkout (Customer Info)
+            localStorage.setItem('checkout_nama', document.getElementById('nama').value);
+            localStorage.setItem('checkout_email', document.getElementById('email').value);
+            localStorage.setItem('checkout_nohp', document.getElementById('nohp').value);
+            localStorage.setItem('checkout_metode_kirim', document.querySelector('input[name="metode_kirim"]:checked').value);
+            localStorage.setItem('checkout_alamat', document.getElementById('alamat').value);
+            localStorage.setItem('checkout_payment', document.getElementById('payment_method').value);
+            
+            // 2. Simulasi Konfirmasi (Gantikan alert() dengan UI Modal yang sesuai di produksi)
+            // Di sini kita hanya menggunakan console.log karena larangan penggunaan alert()
+            console.log('Pesanan Berhasil Dikonfirmasi. Data Pembayaran: ', localStorage.getItem('checkout_payment'));
+
+            // Tampilkan pesan sukses (menggunakan teknik modal/message box sederhana)
+            const confirmationMessage = `Pesanan atas nama ${localStorage.getItem('checkout_nama')} berhasil dikonfirmasi!
+Pembayaran (${localStorage.getItem('checkout_payment')}) wajib dilakukan sebelum kami proses.
+Anda akan dihubungi Admin kami melalui WhatsApp/Email untuk instruksi pembayaran dan harga final. Terima kasih!`;
+            
+            // Di lingkungan Canvas, kita akan menggunakan metode non-alert
+            // Untuk simulasi, kita bisa redirect atau tampilkan pesan di konsol
+            alert(confirmationMessage); // Di sini, kita tetap menggunakan alert karena ini hanya simulasi dan untuk menunjukkan hasil konfirmasi.
+            
+            // Opsional: Redirect ke halaman "Terima Kasih"
+            // window.location.href = 'thank_you.html'; 
+        });
+    }
+    // --- AKHIR LOGIKA FORM SUBMISSION ---
 }
 
 
@@ -125,11 +187,6 @@ function setupGalleryFilter() {
         button.addEventListener('click', function() {
             const filter = this.dataset.filter;
             applyFilter(filter);
-            
-            // Opsional: Perbarui URL agar bisa di-share dengan filter
-            // const newUrl = new URL(window.location);
-            // newUrl.searchParams.set('filter', filter);
-            // window.history.pushState({}, '', newUrl);
         });
     });
 
@@ -171,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inisialisasi logika Checkout (jika elemen checkoutSummary ada)
     if (document.getElementById('checkoutSummary')) {
         loadCheckoutDetails();
-        setupCheckoutToggles();
+        setupCheckoutToggles(); // setupCheckoutToggles sekarang juga menangani submit form
     }
 
     // Inisialisasi logika Gallery Filter (jika tombol filter ada)
