@@ -1,0 +1,23 @@
+/* Roboto Regular (Jika menggunakan file Roboto-Regular.ttf) */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('Roboto-Regular.ttf') format('truetype');
+}
+
+/* Roboto Medium (Jika menggunakan file Roboto-Medium.ttf) */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('Roboto-Medium.ttf') format('truetype');
+}
+
+/* Roboto Bold (Jika menggunakan file Roboto-Bold.ttf) */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('Roboto-Bold.ttf') format('truetype');
+}

@@ -1,0 +1,15 @@
+/* Playfair Display Regular (Jika menggunakan file PlayfairDisplay-Regular.ttf) */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('PlayfairDisplay-Regular.ttf') format('truetype');
+}
+
+/* Playfair Display Bold (Jika menggunakan file PlayfairDisplay-Bold.ttf) */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('PlayfairDisplay-Bold.ttf') format('truetype');
+}
