@@ -1,5 +1,6 @@
-// logika slider testimonial (halaman index.html)
+// perbaikan 11 & 12: komentar sederhana dan efisiensi
 
+// logika slider testimonial (halaman index.html)
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.getElementById('cardSlider');
     if (!slider) return;
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideLeftButton = document.getElementById('slideLeft');
     const slideRightButton = document.getElementById('slideRight');
 
-    // jarak scroll: lebar card (350px) + margin/gap (25px)
+    // jarak scroll: lebar card + margin/gap
     const scrollDistance = 375; 
 
     // navigasi tombol kiri
@@ -24,32 +25,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // perbaikan 4: tambahkan fungsionalitas scroll mouse
+    // perbaikan 4: fungsionalitas scroll mouse (final fix)
     slider.addEventListener('wheel', (e) => {
         // jika elemen tidak di-scroll, jangan lakukan apapun
         if (e.deltaY === 0 && e.deltaX === 0) return;
 
-        // mencegak scroll vertikal pada halaman
-        // ini adalah kunci agar mouse wheel mengontrol slider, bukan halaman
+        // mencegak scroll vertikal pada halaman utama
         e.preventDefault(); 
         
         // sebagian besar mouse wheel mengirimkan deltaY, kita arahkan ke scrollLeft
-        // faktor 1.5x ditambahkan agar guliran lebih terasa/cepat
+        // menggunakan e.deltaY karena mouse wheel standar mengirimkan guliran vertikal
         const scrollAmount = e.deltaY !== 0 ? e.deltaY : e.deltaX;
 
+        // faktor 1.5 untuk kecepatan gulir yang lebih nyaman
         slider.scrollLeft += scrollAmount * 1.5;
     });
 });
 
 
-// fungsi carousel mini galeri
-// digunakan di gallery.html untuk menavigasi slide gambar produk
+// fungsi carousel mini galeri (digunakan di gallery.html)
+// perbaikan 5: fungsi yang digunakan untuk menavigasi slide gambar produk
 function changeSlide(stackId, direction) {
     const stack = document.getElementById(stackId);
     if (!stack) return;
 
     // lebar slide tunggal (diasumsikan 100% dari container)
-    const slideWidth = stack.children[0].clientWidth; 
+    const slideWidth = stack.clientWidth; 
     
     let currentScroll = stack.scrollLeft;
     let targetScroll = currentScroll + (direction * slideWidth);

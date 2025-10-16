@@ -2,88 +2,95 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Form Custom Order - Salma Cake Bakery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>form custom order - salma cake bakery</title>
+    <link rel="stylesheet" href="font/Playfair_Display/PlayfairDisplay.css">
+    <link rel="stylesheet" href="font/Roboto/Roboto.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">🎂 Salma Cake Bakery</div>
+        <a href="index.html" class="logo">🎂 salma cake bakery</a>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="form-order.html" class="active">Shop</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html" class="cta-button">Contact</a>
+            <a href="index.html">home</a>
+            <a href="about.html">about</a>
+            <a href="form-order.html" class="active">shop</a>
+            <a href="gallery.html">gallery</a>
+            <a href="login.html" class="account-icon" title="login / akun saya">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <a href="contact.html" class="cta-button">contact</a>
         </nav>
     </header>
     
     <main class="form-content">
-        <h1>Pilih Detail Kue Ulang Tahun Custom</h1>
+        <h1>pilih detail kue ulang tahun custom</h1>
         <form id="customOrderForm">
 
             <fieldset>
-                <legend>Detail Dasar Kue</legend>
-                <label for="ukuran">Ukuran (Diameter/Dimensi):</label>
+                <legend>detail dasar kue</legend>
+                <label for="ukuran">ukuran (diameter/dimensi):</label>
                 <select id="ukuran" name="ukuran" required>
-                    <option value="15_cm">15 cm (Kecil) - Rp 150.000</option>
-                    <option value="20_cm" selected>20 cm (Sedang) - Rp 250.000</option>
-                    <option value="20x20_cm">20x20 cm (Persegi Besar) - Rp 300.000</option>
+                    <option value="15_cm">15 cm (kecil) - rp 150.000</option>
+                    <option value="20_cm" selected>20 cm (sedang) - rp 250.000</option>
+                    <option value="20x20_cm">20x20 cm (persegi besar) - rp 300.000</option>
                 </select>
 
-                <label for="bentuk">Bentuk Dasar:</label>
+                <label for="bentuk">bentuk dasar:</label>
                 <select id="bentuk" name="bentuk" required>
-                    <option value="bulat">Bulat</option>
-                    <option value="persegi">Persegi</option>
-                    <option value="hati">Hati</option>
+                    <option value="bulat">bulat</option>
+                    <option value="persegi">persegi</option>
+                    <option value="hati">hati</option>
                 </select>
             </fieldset>
 
             <fieldset>
-                <legend>Bahan Baku & Add-ons</legend>
+                <legend>bahan baku & add-ons</legend>
 
-                <label for="base_cake">Rasa Dasar (Base Cake):</label>
+                <label for="base_cake">rasa dasar (base cake):</label>
                 <select id="base_cake" name="base_cake" required>
-                    <option value="cokelat">Cokelat Premium</option>
-                    <option value="vanilla">Vanilla Butter</option>
-                    <option value="red_velvet">Red Velvet (+Rp 25.000)</option>
+                    <option value="cokelat">cokelat premium</option>
+                    <option value="vanilla">vanilla butter</option>
+                    <option value="red_velvet">red velvet (+rp 25.000)</option>
                 </select>
                 
-                <fieldset><legend>Pilih Add-ons (Harga ditambahkan otomatis):</legend>
+                <fieldset><legend>pilih add-ons (harga ditambahkan otomatis):</legend>
 
-                <input type="checkbox" id="addons1" name="addons" value="fondan_minimalis" data-price="50000" for="addons1"> Dekorasi Fondan Minimalis (+Rp 50.000)<br>
+                <input type="checkbox" id="addons1" name="addons" value="fondan_minimalis" data-price="50000"> dekorasi fondan minimalis (+rp 50.000)<br>
 
-                <input type="checkbox" id="addons2" name="addons" value="buah_segar" data-price="35000" for="addons2"> Topping Buah Segar (+Rp 35.000)<br>
+                <input type="checkbox" id="addons2" name="addons" value="buah_segar" data-price="35000"> topping buah segar (+rp 35.000)<br>
                 
-                <input type="checkbox" id="addons3" name="addons" value="filling_premium" data-price="20000" for="addons3"> Filling Premium Ganache (+Rp 20.000)</fieldset>
+                <input type="checkbox" id="addons3" name="addons" value="filling_premium" data-price="20000"> filling premium ganache (+rp 20.000)</fieldset>
             </fieldset>
 
             <fieldset>
-                <legend>Request Custom & Pengiriman</legend>
-                <label for="request_khusus">Request Khusus (misal: bentuk/ukuran custom, figur 3D - <b>Persetujuan Admin</b>):</label>
-                <textarea id="request_khusus" name="request_khusus" rows="4"></textarea>
+                <legend>request custom & pengiriman</legend>
+                <label for="request_khusus">request khusus (misal: bentuk/ukuran custom, figur 3d - <b>persetujuan admin</b>):</label>
+                <textarea id="request_khusus" name="request_khusus" rows="4" required placeholder="isi - (strip) jika tidak ada request"></textarea>
 
-                <label for="tanggal_ambil">Tanggal Ambil/Kirim:</label>
+                <label for="tanggal_ambil">tanggal ambil/kirim:</label>
                 <input type="date" id="tanggal_ambil" name="tanggal_ambil" required>
             </fieldset>
 
             <div id="ringkasan_harga">
-                <h3>Ringkasan Harga Awal:</h3>
-                <p>Harga Dasar: <span id="harga_dasar">Rp 0</span></p>
-                <p>Total Add-ons: <span id="total_addons">Rp 0</span></p>
-                <p>Total Estimasi: <strong id="total_estimasi">Rp 0</strong></p>
+                <h3>ringkasan harga awal:</h3>
+                <p>harga dasar: <span id="harga_dasar">rp 0</span></p>
+                <p>total add-ons: <span id="total_addons">rp 0</span></p>
+                <p>total estimasi: <strong id="total_estimasi">rp 0</strong></p>
                 <p class="notif-custom">
-                    * Harga final akan dikonfirmasi Admin jika ada Request Khusus/Custom sulit.
+                    * harga final akan dikonfirmasi admin jika ada request khusus/custom sulit.
                 </p>
             </div>
 
-            <button type="submit" class="cta-large">Lanjut ke Checkout</button>
+            <button type="submit" class="cta-large">lanjut ke checkout</button>
         </form>
     </main>
 
     <footer>
-        <p>&copy; 2025 Salma Cake Bakery. All Rights Reserved.</p>
+        <p>&copy; 2025 salma cake bakery. all rights reserved.</p>
     </footer>
 
     <script src="js/javascript.js"></script>

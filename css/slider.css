@@ -25,14 +25,22 @@
     cursor: grab; /* memberi indikasi bahwa elemen bisa di drag/scroll */
 }
 
-/* menyembunyikan scrollbar bawaan browser */
+/* new: styling scrollbar melintang dengan tema yang sama */
+/* tampilkan scrollbar bawaan browser */
 .card-slider::-webkit-scrollbar {
-    display: none;
+    height: 8px; /* tinggi scrollbar */
+    background-color: #f1f1f1;
 }
-.card-slider {
-    -ms-overflow-style: none; /* ie and edge */
-    scrollbar-width: none; /* firefox */
+
+.card-slider::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color); /* warna thumb */
+    border-radius: 10px;
 }
+
+.card-slider::-webkit-scrollbar-thumb:hover {
+    background-color: #d1563f; /* warna saat hover */
+}
+/* end scrollbar styling */
 
 /* 3. styling kartu testimonial */
 .card.testimonial-card {

@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Salma Cake Bakery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="font/Playfair_Display/PlayfairDisplay.css">
+    <link rel="stylesheet" href="font/Roboto/Roboto.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
 </head>
 <body>
 
@@ -21,7 +26,7 @@
             <a href="login.html" class="account-icon active" title="Login / Akun Saya">
                 <i class="fas fa-user-circle"></i>
             </a>
-            <a href="https://wa.me/6281234567890" target="_blank" class="cta-button" title="Hubungi kami via WhatsApp">
+            <a href="https://wa.me/6281289899187" target="_blank" class="cta-button" title="Hubungi kami via WhatsApp">
                 <i class="fab fa-whatsapp"></i> Chat Admin
             </a>
         </nav>
@@ -42,6 +47,8 @@
 
                 <button type="submit">MASUK</button>
             </form>
+
+            <div id="loginMessageContainer"></div>
 
             <p class="register-link">
                 Belum punya akun? <a href="#">Daftar Sekarang</a>
@@ -64,6 +71,13 @@
             this.classList.toggle('fa-eye');
         });
 
+        // HTML Pesan Sukses 
+        const successMessageHtml = `
+            <div style="background-color: #e6ffe6; border: 1px solid #00b300; color: #008000; padding: 15px; border-radius: 8px; margin-top: 20px; transition: opacity 0.3s;">
+                <strong>Login Berhasil!</strong> Anda akan dialihkan.
+            </div>
+        `;
+
         // Simulasi Logika Submit Form
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -71,30 +85,20 @@
             console.log("Login dicoba...");
 
             const loginCard = document.querySelector('.login-card');
-
-            // Hapus pesan sebelumnya
-            const prevMessage = document.getElementById('loginMessage');
-            if(prevMessage) prevMessage.remove();
-
+            const messageContainer = document.getElementById('loginMessageContainer');
+            
             // Tampilkan pesan simulasi sukses
-            const successMessage = document.createElement('div');
-            successMessage.id = 'loginMessage';
-            successMessage.innerHTML = `
-                <div style="background-color: #e6ffe6; border: 1px solid #00b300; color: #008000; padding: 15px; border-radius: 8px; margin-top: 20px; transition: opacity 0.3s;">
-                    <strong>Login Berhasil!</strong> Anda akan dialihkan.
-                </div>
-            `;
-            loginCard.appendChild(successMessage);
+            messageContainer.innerHTML = successMessageHtml;
             loginCard.querySelector('button').disabled = true;
 
             // Simulasi redirect setelah 2 detik
             setTimeout(() => {
-                // window.location.href = 'index.html';
+                // window.location.href = 'index.html'; // Uncomment this for actual redirect
                 console.log("Simulasi dialihkan ke index.html");
                 
                 // Bersihkan pesan dan kembalikan tombol
                 loginCard.querySelector('button').disabled = false;
-                successMessage.remove();
+                messageContainer.innerHTML = ''; // Hapus pesan
             }, 2000);
         });
     </script>

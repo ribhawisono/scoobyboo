@@ -2,82 +2,123 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Gallery - Salma Cake Bakery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>gallery - salma cake bakery</title>
+    <link rel="stylesheet" href="font/Playfair_Display/PlayfairDisplay.css">
+    <link rel="stylesheet" href="font/Roboto/Roboto.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    
     <link rel="stylesheet" href="css/style.css"> 
-</head>
+    <link rel="stylesheet" href="css/slider.css"> </head>
 <body>
 
     <header>
-        <div class="logo">🎂 Salma Cake Bakery</div>
+        <a href="index.html" class="logo">🎂 salma cake bakery</a>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="form-order.html">Shop</a>
-            <a href="gallery.html" class="active">Gallery</a>
-            <a href="contact.html" class="cta-button">Contact</a>
+            <a href="index.html">home</a>
+            <a href="about.html">about</a>
+            <a href="form-order.html">shop</a>
+            <a href="gallery.html" class="active">gallery</a>
+            <a href="login.html" class="account-icon" title="login / akun saya">
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <a href="contact.html" class="cta-button">contact</a>
         </nav>
     </header>
 
     <main class="gallery-content">
-        <h1>Gallery Inspirasi Kue Custom</h1>
-        <p style="text-align: center; margin-bottom: 30px;">Jelajahi berbagai model kue yang pernah kami buat. Jadikan ini inspirasi untuk pesanan Anda!</p>
+        <h1>gallery inspirasi kue custom</h1>
+        <p style="text-align: center; margin-bottom: 30px;">jelajahi berbagai model kue yang pernah kami buat. jadikan ini inspirasi untuk pesanan anda!</p>
 
         <div class="katalog-filter">
-            <button class="active" data-filter="semua">Semua</button>
-            <button data-filter="sulit">Level Sulit</button>
-            <button data-filter="karakter">Character (3D)</button>
-            <button data-filter="minimalis">Minimalis (Fondan)</button>
-            <button data-filter="drip">Drip Cake</button>
+            <button class="active" data-filter="semua">semua</button>
+            <button data-filter="sulit">level sulit</button>
+            <button data-filter="karakter">character (3d)</button>
+            <button data-filter="minimalis">minimalis (fondan)</button>
+            <button data-filter="drip">drip cake</button>
         </div>
 
         <div class="katalog-grid">
             
             <script>
-                // Fungsi untuk membuat item galeri (data item tetap di sini)
-                function createGalleryItem(idPrefix, category, title, extension) {
+                const galleryData = [
+                    { id: 'gabby', category: 'sulit', title: "gabby's dollhouse cake", ext: 'jpg', price: 'Rp550.000,00', slides: 3 },
+                    { id: 'customchar', category: 'sulit', title: "karakter custom khusus", ext: 'webp', price: 'Rp480.000,00', slides: 3 },
+                    { id: 'customlampu', category: 'sulit', title: "kue lampu led custom", ext: 'webp', price: 'Rp520.000,00', slides: 3 },
+                    { id: 'bebek', category: 'karakter', title: "bebek kuning lucu", ext: 'webp', price: 'Rp350.000,00', slides: 2 },
+                    { id: 'bola', category: 'karakter', title: "tema bola 3d", ext: 'webp', price: 'Rp400.000,00', slides: 3 },
+                    { id: 'human', category: 'karakter', title: "potrait wajah manusia", ext: 'webp', price: 'Rp380.000,00', slides: 2 },
+                    { id: 'buah', category: 'minimalis', title: "naked cake buah mix", ext: 'webp', price: 'Rp270.000,00', slides: 3 },
+                    { id: 'minnie', category: 'minimalis', title: "minnie mouse simple", ext: 'webp', price: 'Rp250.000,00', slides: 2 },
+                    { id: 'triwarna', category: 'minimalis', title: "kue minimalis triwarna", ext: 'webp', price: 'Rp220.000,00', slides: 3 },
+                    { id: 'candy', category: 'drip', title: "candy land drip cake", ext: 'webp', price: 'Rp320.000,00', slides: 3 },
+                    { id: 'cokelatcherry', category: 'drip', title: "cokelat cherry mewah drip", ext: 'webp', price: 'Rp300.000,00', slides: 2 },
+                    { id: 'cokelatstoberi', category: 'drip', title: "cokelat stroberi drip klasik", ext: 'webp', price: 'Rp280.000,00', slides: 3 },
+                ];
+                
+                function createGalleryItem(item) {
+                    let imagesHtml = '';
+                    for (let i = 1; i <= item.slides; i++) {
+                        imagesHtml += `<img src="img/${item.category}/${item.id}${i}.${item.ext}" alt="${item.title} - slide ${i}">`;
+                    }
+
                     const html = `
-                        <div class="gallery-item" data-category="${category}">
+                        <div class="gallery-item" data-category="${item.category}">
                             <div class="image-carousel-mini">
-                                <div class="image-stack" id="${idPrefix}-carousel-stack">
-                                    <img src="img/${category}/${idPrefix}1.${extension}" alt="${title} - Slide 1">
-                                    <img src="img/${category}/${idPrefix}2.${extension}" alt="${title} - Slide 2">
-                                    <img src="img/${category}/${idPrefix}3.${extension}" alt="${title} - Slide 3">
+                                <div class="image-stack" id="${item.id}-carousel-stack">
+                                    ${imagesHtml}
                                 </div>
                                 <div class="carousel-controls">
-                                    <button onclick="changeSlide('${idPrefix}-carousel-stack', -1)">&#10094;</button>
-                                    <button onclick="changeSlide('${idPrefix}-carousel-stack', 1)">&#10095;</button>
+                                    <button onclick="changeSlide('${item.id}-carousel-stack', -1)" title="slide sebelumnya">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button onclick="changeSlide('${item.id}-carousel-stack', 1)" title="slide berikutnya">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <p>${title}</p>
+                            <p>${item.title}</p>
+                            <p class="item-price">${item.price}</p> 
                         </div>
                     `;
                     document.write(html);
                 }
 
-                // format: createGalleryItem(nama_file, kategori, judul, format_gambar)
-                createGalleryItem('gabby', 'sulit', "Gabby's Dollhouse Cake", 'jpg');
-                createGalleryItem('customchar', 'sulit', "Karakter Custom Khusus", 'webp');
-                createGalleryItem('customlampu', 'sulit', "Kue Lampu LED Custom", 'webp');
-                createGalleryItem('bebek', 'karakter', "Bebek Kuning Lucu", 'webp');
-                createGalleryItem('bola', 'karakter', "Tema Bola 3D", 'webp');
-                createGalleryItem('human', 'karakter', "Potrait Wajah Manusia", 'webp');
-                createGalleryItem('buah', 'minimalis', "Naked Cake Buah Mix", 'webp');
-                createGalleryItem('minnie', 'minimalis', "Minnie Mouse Simple", 'webp');
-                createGalleryItem('triwarna', 'minimalis', "Kue Minimalis Triwarna", 'webp');
-                createGalleryItem('candy', 'drip', "Candy Land Drip Cake", 'webp');
-                createGalleryItem('cokelatcherry', 'drip', "Cokelat Cherry Mewah Drip", 'webp');
-                createGalleryItem('cokelatstoberi', 'drip', "Cokelat Stroberi Drip Klasik", 'webp');
+                galleryData.forEach(item => createGalleryItem(item));
             </script>
             
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Salma Cake Bakery. All Rights Reserved.</p>
+        <p>&copy; 2025 salma cake bakery. all rights reserved.</p>
     </footer>
 
+    <script src="js/slider.js"></script>
     <script src="js/javascript.js"></script>
-    <script src="js/script-slider.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.katalog-filter button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+
+                    galleryItems.forEach(item => {
+                        const category = item.dataset.category;
+                        if (filter === 'semua' || category === filter) {
+                            item.style.display = 'block'; 
+                        } else {
+                            item.style.display = 'none'; 
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
