@@ -7,6 +7,7 @@
     --text-light: #ffffff;
     --bg-light: #FBF8F5; /* Background sangat terang */
     --bg-card: #ffffff;
+    --bg-dark: #8B4513;
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Roboto', sans-serif;
     --border-radius-main: 12px;
@@ -76,6 +77,8 @@ header {
 nav a {
     margin-left: 25px;
     padding: 10px 18px;
+    /* PERBAIKAN FONT NAVBAR DITAMBAHKAN KEMBALI */
+    font-family: var(--font-sans); 
     font-weight: 500;
     border-radius: var(--border-radius-main);
     transition: background-color var(--transition-speed), color var(--transition-speed);
@@ -103,13 +106,109 @@ nav a.active:not(.cta-button) {
 
 /* 4. FOOTER */
 footer {
-    text-align: center;
-    padding: 25px;
-    background-color: var(--primary-color);
+    padding: 30px 20px;
+    background-color: var(--bg-dark); /* Latar belakang gelap */
     color: var(--text-light);
     font-size: 0.9em;
-    margin-top: 50px;
+    margin-top: 0;
 }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr; /* Kolom 1: Jam, Kolom 2: Logo */
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 40px;
+    align-items: start;
+    text-align: left;
+}
+
+.footer-grid h3 {
+    font-family: var(--font-serif);
+    font-size: 2.5em;
+    font-weight: 700;
+    text-transform: none;
+    color: var(--secondary-color); /* Judul menggunakan warna aksen */
+    margin-bottom: 10px;
+    margin-left: 80px;
+    letter-spacing: 1px;
+}
+
+/* Kolom Jam Kerja */
+.working-hours p {
+    margin-left: 80px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #ccc;
+}
+
+.note-disclaimer {
+    display: block;
+    margin-left: 80px;
+    margin-top: 15px;
+    color: #fdfdfd;
+    font-size: 0.8em;
+}
+
+/* Kolom Socmed (Logo & Deskripsi) */
+.footer-socmed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 40px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+    font-family: var(--font-serif);
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text-light);
+    transition: color var(--transition-speed);
+    margin-bottom: 10px;
+}
+
+.footer-logo:hover {
+    color: var(--secondary-color);
+}
+
+.footer-description {
+    font-size: 0,9em;
+    line-height: 1.6;
+    color: #aaa;
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: var(--text-light);
+    font-size: 1.2em;
+    margin: 0 8px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.social-icons a:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-dark);
+    border-color: var(--secondary-color);
+}
+
+.copyright {
+    color: #f5f4f4;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 /* 5. HOMEPAGE (index.html) */
 #hero {
@@ -349,12 +448,14 @@ footer {
 .image-carousel-mini {
     position: relative; 
     width: 100%;
-    height: 500px;
+    /* Mengubah tinggi mutlak menjadi aspect-ratio agar responsif */
+    aspect-ratio: 3 / 4; 
     overflow: hidden; 
     border-top-left-radius: var(--border-radius-main);
     border-top-right-radius: var(--border-radius-main);
-    aspect-ratio: 3 / 4; 
 }
+/* Menghapus height: 500px yang lama dari .image-carousel-mini */
+
 
 .image-stack {
     display: flex;
@@ -750,6 +851,21 @@ fieldset input[type="radio"] {
     
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Responsive Footer */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack semua kolom footer */
+        text-align: center;
+    }
+
+    .footer-socmed {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 30px 20px;
+        margin: 20px 0;
     }
 }
 
