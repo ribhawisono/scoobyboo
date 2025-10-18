@@ -203,10 +203,11 @@ footer {
 }
 
 .copyright {
+    background-color: #421e07;
     color: #f5f4f4;
-    font-size: 1em;
+    font-size: 0.8em;
     text-align: center;
-    margin-top: 10px;
+    width: 100%;
 }
 
 
