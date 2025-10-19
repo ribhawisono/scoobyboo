@@ -106,15 +106,16 @@ nav a.active:not(.cta-button) {
 
 /* 4. FOOTER */
 footer {
-    padding: 30px 20px;
+    padding: 30px 0px;
     background-color: var(--bg-dark); /* Latar belakang gelap */
     color: var(--text-light);
     font-size: 0.9em;
-    margin-top: 0;
+    width: 100%;
 }
 
 .footer-grid {
     display: grid;
+    padding: 0px 20px;
     grid-template-columns: 2fr 2fr; /* Kolom 1: Jam, Kolom 2: Logo */
     max-width: 1300px;
     margin: 0 auto;
@@ -205,9 +206,11 @@ footer {
 .copyright {
     background-color: #421e07;
     color: #f5f4f4;
+    padding: 15px 0;
     font-size: 0.8em;
     text-align: center;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 
