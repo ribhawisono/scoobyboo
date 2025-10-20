@@ -216,10 +216,11 @@ footer {
     background: linear-gradient(rgba(251, 248, 245, 0.6), rgba(251, 248, 245, 0.8)), url('img/bg.jpeg'); 
     background-size: cover;
     background-position: center;
-    padding: 100px 50px;
+    padding: 80px 50px;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     border-radius: var(--border-radius-main);
+    background-color: #f7f1ea;
 }
 
 #hero h1 {
@@ -262,6 +263,38 @@ footer {
     margin-top: 50px;
 }
 
+.section-title {
+  margin-bottom: 35px;
+}
+.section-title span {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: block;
+  margin-bottom: 10px;
+}
+.section-title h2 {
+  font-size: 46px;
+  color: #111111;
+  line-height: 60px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+}
+
+.set-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.spad {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+ 
 .info-card {
     border: 3px solid var(--secondary-color);
     background-color: var(--bg-card);
@@ -499,6 +532,87 @@ footer {
     color: var(--primary-color);
 }
 
+/* ===== GALLERY PREVIEW ===== */
+.katalog-grid-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+  justify-items: center;
+}
+
+.preview-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* ini jaga bentuk kotak tetap proporsional */
+  border-radius: var(--border-radius-main);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: var(--bg-card);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  display: block; /* pastikan a/div tampil block penuh */
+}
+
+.preview-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.preview-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.6);
+}
+
+/* Overlay hover effect */
+.preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.preview-item:hover .preview-overlay {
+  opacity: 1;
+}
+
+/* Text dan tombol di dalam hover */
+.preview-overlay span {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.preview-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.preview-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  transform: scale(1.05);
+}
 
 /* 8. FORM, CHECKOUT, & ABOUT PAGES */
 
