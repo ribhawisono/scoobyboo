@@ -541,22 +541,111 @@ footer {
   justify-items: center;
 }
 
+.katalog-grid-preview .preview-item {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Gambar produk */
+.katalog-grid-preview .preview-image-wrapper img {
+  width: 100%;
+  display: block;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  transition: transform 0.3s ease;
+}
+
+.katalog-grid-preview .preview-item:hover .preview-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.katalog-grid-preview .preview-image-wrapper {
+  overflow: visible !important;
+}
+
+.katalog-grid-preview .preview-info {
+  background: #fff;
+  text-align: center;
+  padding: 16px 10px 28px; /* ruang bawah sedikit dikurangi */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.katalog-grid-preview .preview-info span:first-child {
+  display: block;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.katalog-grid-preview .preview-price-action {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  background: #fff;
+}
+
+.katalog-grid-preview .price-text {
+  display: block;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+/* Efek hover untuk "Pesan Sekarang" */
+.katalog-grid-preview .action-text {
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+  color: #b8860b; /* warna emas */
+  font-weight: 600;
+}
+
+.katalog-grid-preview .preview-item:hover .action-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 .preview-item {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4; /* ini jaga bentuk kotak tetap proporsional */
+  /* aspect-ratio: 3 / 4;  ini jaga bentuk kotak tetap proporsional */
   border-radius: var(--border-radius-main);
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  background-color: var(--bg-card);
+  background-color: var(--bg-card, #fff);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  display: block; /* pastikan a/div tampil block penuh */
+  display: flex; /* pastikan a/div tampil block penuh */
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
 
 .preview-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.preview-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Menjaga rasio aspek gambar */
+  overflow: hidden;
+  border-radius: var(--border-radius-main);
 }
 
 .preview-item img {
@@ -568,7 +657,60 @@ footer {
 
 .preview-item:hover img {
   transform: scale(1.05);
-  filter: brightness(0.6);
+  filter: brightness(0.9);
+}
+
+/* Keterangan di bawah gambar */
+.preview-info {
+    padding: 10px 15px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Teks rata kiri */
+    width: 100%;
+    background-color: transparent !important;
+}
+
+.preview-info span { /* Nama kue */
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-dark, #333); /* Pastikan warna teks terlihat */
+    background-color: transparent !important;
+}
+
+.preview-price-action { /* Wrapper harga dan tombol */
+    height: 1.4em;
+    overflow: hidden;
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--secondary-color, #f00);
+    transition: color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    background-color: transparent !important;
+}
+
+/* Efek underline saat hover di area item */
+.preview-item:hover .preview-price-action {
+    color: var(--primary-color); /* Ubah warna saat hover */
+}
+
+.price-text, .action-text { /* Teks harga dan action */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: block;
+    width: 100%;
+    line-height: 1em;
+}
+
+.action-text { /* Pesan Sekarang */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Sembunyikan 'Pesan Sekarang' secara default */
+    transform: translateY(120%); /* Geser ke bawah */
+    text-decoration: underline; /* Tambahkan underline ke teks 'Pesan Sekarang' */
+    color: var(--primary-color, #007bff) !important; /* Pastikan warna 'Pesan Sekarang' terlihat */
 }
 
 /* Overlay hover effect */
@@ -583,18 +725,29 @@ footer {
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-}
+} 
 
 .preview-item:hover .preview-overlay {
   opacity: 1;
 }
 
-/* Text dan tombol di dalam hover */
+/* Text dan tombol di dalam hover  */
 .preview-overlay span {
   font-size: 1.1em;
   font-weight: 600;
   margin-bottom: 12px;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+} 
+
+/* Saat item di-hover */
+.preview-item:hover .price-text {
+    opacity: 0;
+    transform: translateY(-120%);
+}
+
+.preview-item:hover .action-text {
+    opacity: 1; /* Tampilkan 'Pesan Sekarang' */
+    transform: translateY(0); 
 }
 
 .preview-btn {
