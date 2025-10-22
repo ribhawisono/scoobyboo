@@ -59,11 +59,14 @@ main {
 header {
     background-color: var(--bg-card);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 18px 50px;
+    padding: 15px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -458,6 +461,12 @@ footer {
     gap: 30px;
 }
 
+.gallery-content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
 .gallery-item {
     background-color: var(--bg-card);
     border-radius: var(--border-radius-main);
@@ -824,6 +833,12 @@ footer {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
+.contact-content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -1002,7 +1017,7 @@ fieldset input[type="radio"] {
 }
 
 
-/* 8.5 LOGIN PAGE STYLING (login.html) */
+/* 8.LOGIN PAGE STYLING (login.html) */
 .login-container {
     display: flex;
     justify-content: center;
@@ -1048,6 +1063,23 @@ fieldset input[type="radio"] {
     font-size: 1em;
     transition: border-color var(--transition-speed);
 }
+
+.login-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.login-logo img {
+    width: 80px; /* bisa ubah sesuai ukuran logo kamu */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.login-logo:hover img {
+    transform: scale(1.05);
+}
+
 
 .password-container {
     position: relative;
@@ -1180,4 +1212,103 @@ fieldset input[type="radio"] {
     .card.testimonial-card {
         min-width: 90%;
     }
+}
+
+/* 10. Logo Navbar Hover Effect */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.logo-img {
+  width: 50px;/* sesuaikan ukurannya */
+  height: auto;
+  margin-right: 8px;
+}
+
+/* 11. Account Page */
+.account-page {
+  min-height: 90vh;
+  background: linear-gradient(to bottom, #fffdf8, #f6f1e9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.account-page h1 {
+  font-family: "Playfair Display", serif;
+  color: #6b4226; /* coklat tua elegan */
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.profile-form {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #4b3b2c;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d2b48c; /* warna keemasan lembut */
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(107, 66, 38, 0.05);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #b8860b; /* gold tua */
+  box-shadow: 0 0 8px rgba(184, 134, 11, 0.3);
+}
+
+/* tombol */
+.save-btn {
+  background-color: #b8860b;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #a07309;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 2px solid #6b4226;
+  color: #6b4226;
+  border-radius: 10px;
+  padding: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #f6ede1;
 }
