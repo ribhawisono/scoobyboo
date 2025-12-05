@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - Salma Cake Bakery</title>
+    <link rel="icon" type="image/png" href="img/logo/logo.png">
+    <link rel="stylesheet" href="font/Playfair_Display/PlayfairDisplay.css">
+    <link rel="stylesheet" href="font/Roboto/Roboto.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main class="login-container">
+        <div class="login-card">
+             <!-- Logo mengarah ke home -->
+            <a href="index.html" class="login-logo">
+                <img src="img/logo/logo.png" alt="Salma Cake Bakery Logo">
+            </a>
+            <h1>Register Pelanggan</h1>
+            <form id="registerForm">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap Anda" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Buat password" required>
+                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                </div>
+
+                <label for="confirmPassword">Konfirmasi Password</label>
+                <div class="password-container">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Ulangi password Anda" required>
+                    <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                </div>
+
+                <button type="submit">DAFTAR</button>
+            </form>
+
+            <div id="registerMessageContainer"></div>
+
+            <p class="register-link">
+                Sudah punya akun? <a href="login.html">Login Sekarang</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        // Toggle password visibility
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', function () {
+                const input = this.previousElementSibling;
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.classList.toggle('fa-eye-slash');
+            });
+        });
+
+        // Pesan sukses
+        const successMessageHtml = `
+            <div style="background-color: #e6ffe6; border: 1px solid #00b300; color: #008000; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                <strong>Pendaftaran Berhasil!</strong> Anda akan dialihkan ke halaman login.
+            </div>
+        `;
+
+        // Simulasi submit register
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const messageContainer = document.getElementById('registerMessageContainer');
+
+            if (password !== confirmPassword) {
+                messageContainer.innerHTML = `
+                    <div style="background-color: #ffe6e6; border: 1px solid #ff4d4d; color: #b30000; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                        <strong>Gagal!</strong> Password tidak sama.
+                    </div>
+                `;
+                return;
+            }
+
+            messageContainer.innerHTML = successMessageHtml;
+            document.querySelector('button').disabled = true;
+
+           setTimeout(() => {
+                window.location.href = 'login.html'; // aktifkan untuk redirect beneran
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

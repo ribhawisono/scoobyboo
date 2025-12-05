@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Salma Cake Bakery</title>
-    
+    <title>Contact Us - Salma Cake & Bakery</title>
+    <link rel="icon" type="image/png" href="img/logo/logo.png">
     <link rel="stylesheet" href="font/Playfair_Display/PlayfairDisplay.css">
     <link rel="stylesheet" href="font/Roboto/Roboto.css">
     
@@ -15,21 +15,19 @@
 <body>
 
     <header>
-        <div class="logo">🎂 Salma Cake Bakery</div>
-        <nav>
+        <a href="index.html" class="logo">
+            <img src="img/logo/logo.png" alt="Logo Salma Cake Bakery" class="logo-img">
+            Salma Cake & Bakery
+        </a>
+        <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="form-order.html">Shop</a>
             <a href="gallery.html">Gallery</a>
-            <a href="contact.html" class="active">Contact</a>
-            
             <a href="login.html" class="account-icon" title="Login / Akun Saya">
-                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-user-circle"></i> Login
             </a>
-            
-            <a href="https://wa.me/6281289899187" target="_blank" class="cta-button" title="Hubungi kami via WhatsApp">
-                <i class="fab fa-whatsapp"></i> Chat Admin
-            </a>
+            <a href="contact.html" class="cta-button" class="active">Contact</a>
         </nav>
     </header>
 
@@ -97,9 +95,31 @@
     </main>
 
     <footer>
-        <p>© 2025 Salma Cake Bakery. All Rights Reserved.</p>
+        <div class="footer-grid">
+            <div class="working-hours">
+                <h3>Jam Operasional</h3>
+                <p>Senin - Jumat: 08:00 - 20:00 WIB</p>
+                <p>Sabtu: 10:00 - 16:30 WIB</p>
+                <p>Minggu: 10:00 - 14:00 WIB</p>
+                <small class="note-disclaimer"><i>*jadwal dapat berubah di hari libur nasional</i></small>
+            </div>
+            <div class="footer-socmed">
+                <a href="index.html" class="footer-logo">Salma Custom Cake</a>
+                <p class="footer-description">
+                    Spesialis kue custom online premium. Setiap kue dibuat dengan sentuhan personal untuk momen spesial Anda.
+                </p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/kueulangtahunmurahdepok" target="_blank" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=salmacakebakery@gmail.com" target="_blank" aria-label="email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 salma cake bakery. all rights reserved.</p>
+        </div>
     </footer>
 
+    <script src="js/javascript.js"></script>
     <script>
         // Logika dikembalikan menggunakan alert()
         document.getElementById('contactForm').addEventListener('submit', function(e) {

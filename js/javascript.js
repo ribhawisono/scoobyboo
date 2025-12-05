@@ -204,3 +204,17 @@ document.addEventListener('DOMContentLoaded', () => {
         setupGalleryFilter();
     }
 });
+
+// cek status login
+const accountLink = document.querySelector('.account-icon');
+if (accountLink) {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  if (isLoggedIn) {
+    accountLink.href = "account.html";
+    accountLink.innerHTML = '<i class="fas fa-user-circle"></i> Akun Saya';
+  } else {
+    accountLink.href = "login.html";
+    accountLink.innerHTML = '<i class="fas fa-user-circle"></i> Login';
+  }
+}

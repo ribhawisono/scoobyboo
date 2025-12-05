@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Salma Cake Bakery</title>
-    
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="img/logo/logo.png">
     <link rel="stylesheet" href="font/Playfair_Display/PlayfairDisplay.css">
     <link rel="stylesheet" href="font/Roboto/Roboto.css">
     
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <header>
+    <!-- <header>
         <a href="index.html" class="logo">🎂 Salma Cake Bakery</a>
         <nav>
             <a href="index.html">Home</a>
@@ -30,10 +30,14 @@
                 <i class="fab fa-whatsapp"></i> Chat Admin
             </a>
         </nav>
-    </header>
+    </header> -->
 
     <main class="login-container">
         <div class="login-card">
+             <!-- Logo yang mengarah ke home -->
+            <a href="index.html" class="login-logo">
+                <img src="img/logo/logo.png" alt="Salma Cake Bakery Logo">
+            </a>
             <h1>Login Pelanggan</h1>
             <form id="loginForm">
                 <label for="email">Email</label>
@@ -51,14 +55,14 @@
             <div id="loginMessageContainer"></div>
 
             <p class="register-link">
-                Belum punya akun? <a href="#">Daftar Sekarang</a>
+                Belum punya akun? <a href="register.html">Daftar Sekarang</a>
             </p>
         </div>
     </main>
 
-    <footer>
+    <!-- <footer>
         <p>&copy; 2025 Salma Cake Bakery. All Rights Reserved.</p>
-    </footer>
+    </footer> -->
 
     <script>
         document.getElementById('togglePassword').addEventListener('click', function (e) {
@@ -90,14 +94,18 @@
             loginCard.querySelector('button').disabled = true;
 
             // Simulasi redirect setelah 2 detik
-            setTimeout(() => {
-                // window.location.href = 'index.html'; // Uncomment this for actual redirect
-                console.log("Simulasi dialihkan ke index.html");
+            // setTimeout(() => {
+            //     // window.location.href = 'index.html'; // Uncomment this for actual redirect
+            //     console.log("Simulasi dialihkan ke index.html");
                 
-                // Bersihkan pesan dan kembalikan tombol
-                loginCard.querySelector('button').disabled = false;
-                messageContainer.innerHTML = ''; // Hapus pesan
-            }, 2000);
+            //     // Bersihkan pesan dan kembalikan tombol
+            //     loginCard.querySelector('button').disabled = false;
+            //     messageContainer.innerHTML = ''; // Hapus pesan
+            // }, 2000);
+            setTimeout(() => {
+                localStorage.setItem("isLoggedIn", "true");
+                window.location.href = 'index.html';
+            }, 1000);
         });
     </script>
 </body>
