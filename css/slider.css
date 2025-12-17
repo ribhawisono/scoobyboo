@@ -7,51 +7,47 @@
 .slider-container {
     max-width: 1200px;
     margin: 0 auto;
-    position: relative; /* penting untuk posisi tombol */
-    padding: 0 40px; /* memberi ruang untuk tombol di samping */
+    position: relative;
+    padding: 0 40px;
 }
 
 /* 2. card slider utama (scroll horizontal) */
 .card-slider {
-    display: flex; /* menampilkan kartu secara horizontal */
-    overflow-x: scroll; /* diubah menjadi 'scroll' agar mouse wheel berfungsi konsisten */
-    scroll-behavior: smooth; /* membuat transisi scroll halus */
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
     padding: 20px 0;
-    gap: 25px; /* jarak antar kartu */
+    gap: 25px;
     
-    /* perbaikan 4: mouse scroll/smooth scroll */
-    -webkit-overflow-scrolling: touch; /* untuk ios/mobile smoothness */
-    scroll-snap-type: x mandatory; /* memastikan scroll berhenti tepat di kartu */
-    cursor: grab; /* memberi indikasi bahwa elemen bisa di drag/scroll */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
 }
 
-/* new: styling scrollbar melintang dengan tema yang sama */
-/* tampilkan scrollbar bawaan browser */
 .card-slider::-webkit-scrollbar {
-    height: 8px; /* tinggi scrollbar */
+    height: 8px;
     background-color: #f1f1f1;
 }
 
 .card-slider::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color); /* warna thumb */
+    background-color: var(--primary-color);
     border-radius: 10px;
 }
 
 .card-slider::-webkit-scrollbar-thumb:hover {
-    background-color: #d1563f; /* warna saat hover */
+    background-color: #d1563f;
 }
-/* end scrollbar styling */
 
 /* 3. styling kartu testimonial */
 .card.testimonial-card {
-    min-width: 350px; /* ukuran kartu testimoni */
+    min-width: 350px;
     flex-shrink: 0; 
     background-color: var(--bg-card);
     padding: 30px;
     border-radius: var(--border-radius-main);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     border-top: 5px solid var(--secondary-color);
-    scroll-snap-align: start; /* titik snap scroll */
+    scroll-snap-align: start;
 }
 
 .testimonial-card .quote {

@@ -110,12 +110,6 @@ function setupCheckoutToggles() {
 }
 
 
-
-// LOGIKA GALLERY FILTER (Halaman gallery.html)
-// Catatan: Fungsi ini TIDAK HARUS ADA di javascript.js jika sudah ada di file terpisah
-// Tapi jika Anda ingin menggabungkannya, masukkan di sini
-// Karena Anda punya fungsi ini di blok DOMContentLoaded yang lain, kita pindahkan ke bawah
-
 // --- FUNGSI UTAMA FILTERING (Penting: Hanya dipanggil di halaman gallery.html) ---
 function applyFilter(filter) {
     const filterButtons = document.querySelectorAll('.katalog-filter button');
@@ -167,7 +161,6 @@ function setupGalleryFilter() {
         applyFilter('semua');
     }
 }
-
 
 
 // SETUP GLOBAL (Dipanggil saat DOM siap)

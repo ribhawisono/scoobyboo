@@ -31,56 +31,56 @@
     </header>
 
     <main class="checkout-content">
-        <h1 id="checkout-title">checkout sebagai guest</h1>
+        <h1 id="checkout-title">Checkout Sebagai Guest</h1>
         <p id="checkout-status" style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">
-            anda sedang berbelanja sebagai guest. <a href="login.html">login/daftar</a> untuk pengalaman yang lebih cepat.
+            Anda sedang berbelanja sebagai guest. <a href="login.html">Login/daftar</a> untuk pengalaman yang lebih cepat.
         </p>
         
         <div id="checkoutSummary">
-            <h2>ringkasan pesanan anda</h2>
+            <h2>Ringkasan Pesanan Anda</h2>
             <table>
-                <tr><th>ukuran:</th><td id="checkout_ukuran"></td></tr>
-                <tr><th>base cake:</th><td id="checkout_base_cake"></td></tr>
-                <tr><th>tanggal ambil/kirim:</th><td id="checkout_tanggal"></td></tr>
+                <tr><th>Ukuran:</th><td id="checkout_ukuran"></td></tr>
+                <tr><th>Base Cake:</th><td id="checkout_base_cake"></td></tr>
+                <tr><th>Tanggal Ambil/Kirim:</th><td id="checkout_tanggal"></td></tr>
             </table>
-            
-            <h3 class="total-harga">total estimasi harga: <span id="checkout_total">rp 0</span></h3>
+
+            <h3 class="total-harga">Total Estimasi Harga: <span id="checkout_total">Rp 0</span></h3>
             <p class="warning-note">
-                <b>perhatian:</b> ini adalah harga estimasi. harga final dikonfirmasi admin jika ada request khusus/custom sulit.
+                <b>Perhatian:</b> Ini adalah harga estimasi. Harga final dikonfirmasi admin jika ada request khusus/custom sulit.
             </p>
         </div>
 
         <form id="checkoutForm">
             <fieldset>
-                <legend>data pelanggan</legend>
-                <label for="nama">nama lengkap:</label>
+                <legend>Data Pelanggan</legend>
+                <label for="nama">Nama Lengkap:</label>
                 <input type="text" id="nama" name="nama" required>
                 
-                <label for="nohp">nomor hp/wa:</label>
-                <input type="tel" id="nohp" name="nohp" required minlength="10" title="nomor hp/wa minimal 10 digit">
+                <label for="nohp">Nomor HP/WA:</label>
+                <input type="tel" id="nohp" name="nohp" required minlength="10" title="Nomor HP/WA minimal 10 digit">
             </fieldset>
 
             <fieldset>
-                <legend>metode pengiriman</legend>
-                <input type="radio" id="ambil" name="metode_kirim" value="ambil" checked for="ambil"> ambil sendiri (pick-up)<br>
+                <legend>Metode Pengiriman</legend>
+                <input type="radio" id="ambil" name="metode_kirim" value="ambil" checked for="ambil"> Ambil sendiri (pick-up)<br>
                 
-                <input type="radio" id="kirim" name="metode_kirim" value="kirim" for="kirim"> dikirim (biaya kirim dihitung terpisah)
+                <input type="radio" id="kirim" name="metode_kirim" value="kirim" for="kirim"> Dikirim (biaya kirim dihitung terpisah)
                 
                 <div id="alamat_kirim" style="display:none;">
-                    <label for="alamat">alamat lengkap:</label>
+                    <label for="alamat">Alamat lengkap:</label>
                     <textarea id="alamat" name="alamat" rows="3" placeholder="masukkan alamat lengkap anda..."></textarea>
                 </div>
             </fieldset>
             
             <fieldset>
-                <legend>metode pembayaran</legend>
+                <legend>Metode Pembayaran</legend>
                 <select id="payment_method" name="payment_method" required>
-                    <option value="">pilih metode pembayaran</option>
-                    <option value="transfer_bca">transfer bank bca</option>
-                    <option value="transfer_mandiri">transfer bank mandiri</option>
-                    <option value="ewallet">e-wallet (dana/ovo)</option>
+                    <option value="">Pilih metode pembayaran</option>
+                    <option value="transfer_bca">Transfer bank BCA</option>
+                    <option value="transfer_mandiri">Transfer bank Mandiri</option>
+                    <option value="ewallet">E-wallet (DANA/OVO)</option>
                 </select>
-                <button type="submit" class="cta-large">konfirmasi pesanan & lanjut ke pembayaran</button>
+                <button type="submit" class="cta-large">Konfirmasi pesanan & lanjut ke pembayaran</button>
             </fieldset>
         </form>
     </main>

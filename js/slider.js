@@ -30,11 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // jika elemen tidak di-scroll, jangan lakukan apapun
         if (e.deltaY === 0 && e.deltaX === 0) return;
 
-        // mencegak scroll vertikal pada halaman utama
         e.preventDefault(); 
-        
-        // sebagian besar mouse wheel mengirimkan deltaY, kita arahkan ke scrollLeft
-        // menggunakan e.deltaY karena mouse wheel standar mengirimkan guliran vertikal
         const scrollAmount = e.deltaY !== 0 ? e.deltaY : e.deltaX;
 
         // faktor 1.5 untuk kecepatan gulir yang lebih nyaman

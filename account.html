@@ -64,10 +64,8 @@
       const form = document.getElementById("accountForm");
       const logoutBtn = document.getElementById("logout-btn");
 
-      // ambil data user dari localStorage
       const userData = JSON.parse(localStorage.getItem("userData")) || {};
 
-      // isi form pakai data yang tersimpan
       if (userData) {
         document.getElementById("name").value = userData.name || "";
         document.getElementById("email").value = userData.email || "salma@example.com";
